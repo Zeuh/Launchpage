@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<title>Résonances</title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="all">
+        <script src="jquery-1.2.6.pack.js"></script>
+        <script src="local-script.js" type="text/javascript"></script>
+    </head>
+    <body>
+         <div class="dialog-cover"></div>
+        <div id="page-content">
+            <div class="description info">
+                <div class="main-title-wrap"><img src="resonances-title.png" ></div>
+                <div class="text-wrap">Futur réseau social pour l'insertion professionnelle, RESONANCES est un projet de l'Université Rennes 2. Ouvert à tous les publics, il sera la plateforme pour la communication entre les publics de l'Université et les professionnels.<br><br>Ce projet est piloté par le SUIO-IP de l'Université Rennes 2, dans le cadre du projet "2PLG - Réussir en Licence".<br><br>Pour être informé sur le projet et faire partie des premiers participants, vous pouvez demander une invitation.</div>
+                
+            </div>
+            <div class="message errorBalloon">
+                <div class="inputwrap resultText"></div>
+            </div>
+            <div class="message successBalloon">
+                <div class="inputwrap resultText"></div>
+            </div>
+            <div class="input-panel signup">
+                <div class="inputwrap prompt">
+                    <b>En savoir plus ?</b>
+                    <hr class="horizon-seperator"/>
+                </div>
+                <form action="#" class="signup-form" name="ContactForm" id="ContactForm">
+                    <div class="inputwrap suname">
+                        <input type="text" id="signup-name" class="text-input"
+                        name="signup-name">
+                        <label for="signup-name" class="placeholder" id="label-name">Nom</label>
+                    </div>
+                    <div class="inputwrap suemail">
+                        <input type="text" id="signup-email" class="text-input email-input"
+                        name="signup-email" >
+                        <label for="signup-email" class="placeholder" id="label-email">Email</label>
+                    </div>
+                    <div class="inputwrap sutype">
+                       <span>
+                        <select id="signup-type" name="signup-type"> 
+                            <option value="" selected="selected">Vous êtes...</option>
+                            <option value="Etudiant" >Etudiant(e)</option>
+                            <option value="EC" >Enseignant-Chercheur</option>
+                            <option value="Personnel" >Personnel de l'Université</option>
+                            <option value="Professionnel" >Professionnel / Extérieur</option>
+		                </select>
+		              </span>  
+                    </div>
+                    <div class="inputwrap subtncontainer">
+                        <button type="submit" class="signup-btn submit" name="submitbtn" id="submitbtn">Recevoir une invitation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
