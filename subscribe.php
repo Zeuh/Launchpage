@@ -10,8 +10,8 @@ function GetDocument() {
    include_once("Google_Spreadsheet.php");
     
     // FIXME : of course, you should put your google account here
-    $u = "youraccount@gmail.com";
-    $p = "thepassword";
+    $u = "pfesuioipr2@gmail.com";
+    $p = "6go9RqzO7Z9KTuBImM1eN6";
     
     $ss = new Google_Spreadsheet($u,$p);
     $ss->useSpreadsheet("Contacts RESONANCES");
