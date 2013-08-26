@@ -53,7 +53,7 @@ $(document).ready(function() {
 					$(".successBalloon").fadeIn("slow");
 					$(".successBalloon").animate({opacity: 1.0}, 8000);
 					$(".successBalloon").fadeOut(1500);
-					$(".resultText").html(successMessage).fadeIn("slow");
+					$(".resultText").hide().html(successMessage).fadeIn("slow");
                 	$(".resultText").animate({opacity: 1.0}, 8000);
     				$(".resultText").fadeOut(1500);
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
 				    $(".successBalloon").hide();
                     $(".loader").hide();
 					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").html(invalidMailError).fadeIn("slow");
+					$(".resultText").hide().html(invalidMailError).fadeIn("slow");
 					$(".errorBalloon").animate({opacity: 1.0}, 3000);
                     $(".resultText").animate({opacity: 1.0}, 3000);
 					$(".errorBalloon").fadeOut(1500);
@@ -72,7 +72,7 @@ $(document).ready(function() {
 				    $(".successBalloon").hide();
                     $(".loader").hide();
 					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").html(duplicateMailError).fadeIn("slow");
+					$(".resultText").hide().html(duplicateMailError).fadeIn("slow");
 					$(".errorBalloon").animate({opacity: 1.0}, 3000);
                     $(".resultText").animate({opacity: 1.0}, 3000);
 					$(".errorBalloon").fadeOut(1500);
@@ -82,7 +82,7 @@ $(document).ready(function() {
 				    $(".successBalloon").hide();
                     $(".loader").hide();
 					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").html(allFieldsPlease).fadeIn("fast");
+					$(".resultText").hide().html(allFieldsPlease).fadeIn("fast");
 					$(".errorBalloon").animate({opacity: 1.0}, 3000);
                     $(".resultText").animate({opacity: 1.0}, 3000);
 					$(".errorBalloon").fadeOut(1500);
@@ -93,7 +93,7 @@ $(document).ready(function() {
 			    $(".successBalloon").hide();
                 $(".loader").hide();
 				$(".errorBalloon").fadeIn("slow");
-				$(".resultText").html(systemError);
+				$(".resultText").hide().html(systemError).fadeIn("fast");
 				$(".errorBalloon").animate({opacity: 1.0}, 3000);
 				$(".resultText").animate({opacity: 1.0}, 3000);
 				$(".errorBalloon").fadeOut(1500);
