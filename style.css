@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 body { 
      background: url('campus.jpg') no-repeat center center fixed;
      font-family:Arial, sans-serif;
@@ -6,50 +9,74 @@ body {
      -o-background-size: cover;
      background-size: cover;
 }
-.dialog-cover {
-     position:fixed;
-     top:-4px;
-     left:-2px;
-     width:100%;
-     height:100%;
-     background-color:#444444;
-     opacity:0.6;
-     z-index:90;
-     display:none;
+.topfloat {
+    float: left;
+    width:100%;
+    height:20%;
+    margin-bottom:0;
 }
-#page-content {
-     position:absolute;
-     width:840px;
-     height:360px;
-     top:50%;
-     left:50%;
-     margin-left:-420px;
-     margin-top:-220px;
+.wrapper {
+    min-height: 75%;
+    height: auto !important;
+    height: 75%;
+    margin: 0 auto -2em;
+    clear:both;
 }
-.input-panel, .description, .message{
-     background-image:-webkit-gradient(linear, left top, left bottom,from(#ffffff),to(#ccc));
-     background:-moz-linear-gradient(top,#ffffff, #ccc );
-     background-color:white;
-     border:1px solid #bbb;
-     border-radius:5px;
-     border: solid 1px #eee;
-     position:absolute;
-     zoom: 1;
-	 filter: alpha(opacity=80);
-	 opacity: 0.9;
+.page {
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 840px;
+    height:100%;
+    clear:both;
+    position:relative;
+}
+.pagecontent {
+    clear: both;
+    height: 370px;
+}
+.clear {
+    clear: both;
+}
+.block {
+    background-image:-webkit-gradient(linear, left top, left bottom,from(#ffffff),to(#ccc));
+    background:-moz-linear-gradient(top,#ffffff, #ccc );
+    border:1px solid #bbb;
+    border-radius:5px;
+    border: solid 1px #eee;
+}
+.description {
+    position:absolute;
+    background-color:white;
+    top:0px;
+    left:0px;
+    width:420px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:20px;
+    padding-bottom:30px;
+    height:320px;
+}
+.title-wrap {
+    display: block;
+    font-family: Arial, sans-serif;
+    height: 40px;
+    left: 40px;
+    top: 20px;
+    width: 272px;
+}
+.text-wrap {
+    display: block;
 }
 .message {
+    height:100px;
+    width:270px;
+    padding:15px;
+    position:absolute;
+    right:0px;
     top:0px;
-    left:536px; 
-    height:120px;
-    width:300px;
 }
-.info {
-     top:0px;
-     left:0px;
-     width:500px;
-     height:360px;
- }
 .errorBalloon {
     background-image:-webkit-gradient(linear, left top, left bottom,from(#ff0000),to(#ff8888));
     background:-moz-linear-gradient(top,#ff0000, #ff8888 );
@@ -58,7 +85,6 @@ body {
     background-color: #ff8888;
     opacity: 1;
 }
-
 .successBalloon {
     background-image:-webkit-gradient(linear, left top, left bottom,from(#44cc44),to(#55ff55));
     background:-moz-linear-gradient(top,#44cc44, #55ff55 );
@@ -74,19 +100,33 @@ body {
     color: #000;
     background-color: #fff;
     opacity: 0.9;
+    text-align:center;
 }
-div.signup {
-     top:150px;
-     left:536px; 
-     height:210px;
-     width:300px;
- }
+.form {
+    height:180px;
+    width:270px;
+    border:1px solid #bbb;
+    border-radius:5px;
+    border: solid 1px #eee;
+    padding:15px;
+    position:absolute;
+    top:160px;
+    right:0px;
+}
+.prompt {
+    top:12px;
+}
+.horizon-seperator{
+     position:relative;
+     left:-13px;
+     width:295px;
+}
 .inputwrap {
      position:absolute;
      left:14px;
      width:274px;
      height:20px;
- }
+}
 .text-input {
      height:20px;
      width:99%;
@@ -100,7 +140,10 @@ div.signup {
 .text-input:focus {
      box-shadow: 0 0 10px rgba(81, 203, 238, 1);
      border: 1px solid rgba(81, 203, 238, 1);
- }
+}
+.text-input:focus + .placeholder {
+     opacity: 0;
+}
 .placeholder{
      position:absolute;
      top:5px;
@@ -115,35 +158,6 @@ div.signup {
      -webkit-transition:opacity 0.5s;
      -moz-transition:opacity 0.5s;
 }
-.text-input:focus + .placeholder {
-     opacity: 0;
-}
-button.submit{
-     border-radius:3px;
-     font-weight:bold;
-     font-size:15px;
-     color:white;
-     cursor:pointer;
-     background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(51, 188, 239)), to(rgb(1, 154, 210)));
-     background:-moz-linear-gradient(top, rgb(51, 188, 239), rgb(1, 154, 210));
-     background-color:rgb(25,160,220);
-     border:1px solid rgb(5, 126, 208);
-     float:right;
-     position:relative;
-}
-button:hover {
-     background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 130, 200)), to(rgb(1, 154, 210)));
-     background:-moz-linear-gradient(top, rgb(0, 130, 200), rgb(1, 154, 210));
-} 
-.prompt {
-    top:12px;
-}
-
-.resultText {
-    top:24px;
-    height:5em;
-}
-
 .suname {
      top:50px;
      width:266px;
@@ -166,28 +180,36 @@ button.signup-btn{
      display:block;
      float:right;
 }
-.horizon-seperator{
+button.submit{
+     border-radius:3px;
+     font-weight:bold;
+     font-size:15px;
+     color:white;
+     cursor:pointer;
+     background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(51, 188, 239)), to(rgb(1, 154, 210)));
+     background:-moz-linear-gradient(top, rgb(51, 188, 239), rgb(1, 154, 210));
+     background-color:rgb(25,160,220);
+     border:1px solid rgb(5, 126, 208);
+     float:right;
      position:relative;
-     left:-13px;
-     width:300px;
 }
-.main-title-wrap {
+button:hover {
+     background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 130, 200)), to(rgb(1, 154, 210)));
+     background:-moz-linear-gradient(top, rgb(0, 130, 200), rgb(1, 154, 210));
+}
+.push {
+   height: 3em;
+   clear: both;
+}
+.footer {
     display: block;
-    font-family: Arial, sans-serif;
-    height: 40px;
-    left: 40px;
-    position: absolute;
-    top: 20px;
-    width: 272px;
+    width: 100%;
+    height: 2em;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 2em;
 }
-.text-wrap {
-    display: block;
-    position: absolute;
-    height: 120px;
-    width: 430px;
-    top: 80px;
-    left: 40px;
+.footer a {
+    color: #aaa;
 }
-
-
-

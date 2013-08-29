@@ -4,59 +4,81 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     	<title>Résonances</title>
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
-        <!-- <script src="jquery-1.2.6.pack.js"></script> -->
         <script src="jquery-1.10.2.js"></script>
         <script src="local-script.js" type="text/javascript"></script>
     </head>
     <body>
-         <div class="dialog-cover"></div>
-        <div id="page-content">
-            <div class="description info">
-                <div class="main-title-wrap"><img src="resonances-title.png" ></div>
-                <div class="text-wrap"><br>Futur réseau social pour l'insertion professionnelle, RESONANCES est un projet de l'Université Rennes 2 ouvert à tous les publics.<br><br>Ce réseau sera la plateforme pour la communication entre les publics de l'Université et les professionnels.<br><br>Pour être informé sur le projet, être associé à sa conception et faire partie des premiers participants, vous pouvez demander une invitation.<br><br>Ce projet est piloté par le SUIO-IP de l'Université Rennes 2, dans le cadre du projet "IDEFI - 2PLG".</div>
-                
-            </div>
-            <div class="message errorBalloon">
-                <div class="inputwrap resultText"></div>
-            </div>
-            <div class="message successBalloon">
-                <div class="inputwrap resultText"></div>
-            </div>
-            <div class="message loader">
-                <div class="inputwrap resultText" style="text-align:center"><br>Veuillez patienter...</div>
-            </div>
-            <div class="input-panel signup">
-                <div class="inputwrap prompt">
-                    <b>En savoir plus ?</b>
-                    <hr class="horizon-seperator"/>
+        <div class="topfloat"></div>
+        <div class="wrapper">
+            <div class="page">
+                <div class="pagecontent">
+                    <div class="block description">
+                        <div class="title-wrap"><img src="resonances-title.png" ></div>
+                        <div class="text-wrap"><br>Futur réseau social pour l'insertion professionnelle, RESONANCES est un projet de l'Université Rennes 2 ouvert à tous les publics.<br><br>Ce réseau sera la plateforme pour la communication entre les publics de l'Université et les professionnels.<br><br>Pour être informé sur le projet, être associé à sa conception et faire partie des premiers participants, vous pouvez demander une invitation.<br><br>Ce projet est piloté par le SUIO-IP de l'Université Rennes 2, dans le cadre du projet "IDEFI - 2PLG".</div>
+                    </div>
+                    <div class="block message" id="resultMessage">
+                        <div class="resultText"></div>
+                    </div>
+                    <div class="block form">
+                         <div class="inputwrap prompt">
+                            <b>En savoir plus ?</b>
+                            <hr class="horizon-seperator"/>
+                        </div>
+                        <form action="#" name="ContactForm" id="ContactForm">
+                            <div class="inputwrap suname">
+                                <input type="text" id="signup-name" class="text-input"
+                                name="signup-name">
+                                <label for="signup-name" class="placeholder" id="label-name">Nom</label>
+                            </div>
+                            <div class="inputwrap suemail">
+                                <input type="text" id="signup-email" class="text-input email-input"
+                                name="signup-email" >
+                                <label for="signup-email" class="placeholder" id="label-email">Email</label>
+                            </div>
+                            <div class="inputwrap sutype">
+                               <span>
+                                <select id="signup-type" name="signup-type"> 
+                                    <option value="" selected="selected">Vous êtes...</option>
+                                    <option value="Etudiant" >Etudiant(e)</option>
+                                    <option value="EC" >Enseignant-Chercheur</option>
+                                    <option value="Personnel" >Personnel de l'Université</option>
+                                    <option value="Professionnel" >Professionnel / Extérieur</option>
+                                </select>
+                              </span>  
+                            </div>
+                            <div class="inputwrap subtncontainer">
+                                <button type="submit" class="signup-btn submit" name="submitbtn" id="submitbtn">Recevoir une invitation</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <form action="#" class="signup-form" name="ContactForm" id="ContactForm">
-                    <div class="inputwrap suname">
-                        <input type="text" id="signup-name" class="text-input"
-                        name="signup-name">
-                        <label for="signup-name" class="placeholder" id="label-name">Nom</label>
-                    </div>
-                    <div class="inputwrap suemail">
-                        <input type="text" id="signup-email" class="text-input email-input"
-                        name="signup-email" >
-                        <label for="signup-email" class="placeholder" id="label-email">Email</label>
-                    </div>
-                    <div class="inputwrap sutype">
-                       <span>
-                        <select id="signup-type" name="signup-type"> 
-                            <option value="" selected="selected">Vous êtes...</option>
-                            <option value="Etudiant" >Etudiant(e)</option>
-                            <option value="EC" >Enseignant-Chercheur</option>
-                            <option value="Personnel" >Personnel de l'Université</option>
-                            <option value="Professionnel" >Professionnel / Extérieur</option>
-		                </select>
-		              </span>  
-                    </div>
-                    <div class="inputwrap subtncontainer">
-                        <button type="submit" class="signup-btn submit" name="submitbtn" id="submitbtn">Recevoir une invitation</button>
-                    </div>
-                </form>
             </div>
+            <div class="push"></div>
+        </div> 
+        <div class="footer">SUIO-IP - Université Rennes 2 - <script type="text/javascript" language="javascript">
+                <!--
+                // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+                // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+                // This code is freeware provided these four comment lines remain intact
+                // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+                { coded = "md48ugPe.aPUZBdq@l8Pi-dB88BeC.md"
+                  key = "nKStIwg94bFH62zYvdPQc3lJsWBT1fyj8x0qoMaADZ7kEChriN5OuGUReLXpVm"
+                  shift=coded.length
+                  link=""
+                  for (i=0; i<coded.length; i++) {
+                    if (key.indexOf(coded.charAt(i))==-1) {
+                      ltr = coded.charAt(i)
+                      link += (ltr)
+                    }
+                    else {     
+                      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                      link += (key.charAt(ltr))
+                    }
+                  }
+                document.write("<a href='mailto:"+link+"'>Nous contacter</a>")
+                }
+                //-->
+            </script>        
         </div>
     </body>
 </html>
