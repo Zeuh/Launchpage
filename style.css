@@ -42,13 +42,13 @@ body {
 .block {
     background-image:-webkit-gradient(linear, left top, left bottom,from(#ffffff),to(#ccc));
     background:-moz-linear-gradient(top,#ffffff, #ccc );
+    background-color:white;
     border:1px solid #bbb;
     border-radius:5px;
     border: solid 1px #eee;
 }
 .description {
     position:absolute;
-    background-color:white;
     top:0px;
     left:0px;
     width:420px;
