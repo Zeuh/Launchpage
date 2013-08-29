@@ -7,11 +7,9 @@ $(document).ready(function() {
 	var allFieldsPlease     = "Merci de remplir tous les champs.";
 	var pleaseWait          = "Veuillez patienter...<br><br><img src='loader.gif'>";
 	
-	$(".successBalloon").hide();
-	$(".errorBalloon").hide();
 	$(".resultText").hide();
-	$(".loader").hide();
 	$(".resultText").html("");
+	$(".message").hide();
 	
 	$("#signup-email").change(function() {
         if ($("#signup-email").val() != "") {
@@ -30,9 +28,8 @@ $(document).ready(function() {
     });
     
     $('form#ContactForm').bind('submit', function(e){
-		$(".successBalloon").clearQueue().stop().fadeOut("fast");
-		$(".errorBalloon").clearQueue().stop().fadeOut("fast");
-		$(".loader").clearQueue().stop().fadeIn("fast");
+		$(".message").removeClass("successBalloon errorBalloon").addClass("loader");
+		$(".message").clearQueue().stop().fadeIn("fast");
 		$(".resultText").html(pleaseWait).clearQueue().stop().fadeIn("fast");
 		
 		var email  = $('#signup-email').val();
@@ -48,56 +45,36 @@ $(document).ready(function() {
 				$(".resultText").fadeIn("slow");
 				
 				if (theResponse == 1) {
-				    $(".errorBalloon").hide();
-				    $(".loader").hide();
-					$(".successBalloon").fadeIn("slow");
-					$(".successBalloon").animate({opacity: 1.0}, 8000);
-					$(".successBalloon").fadeOut(1500);
-					$(".resultText").hide().html(successMessage).fadeIn("slow");
-                	$(".resultText").animate({opacity: 1.0}, 8000);
-    				$(".resultText").fadeOut(1500);
+				    $(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("successBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 8000).fadeOut(1500);
+					$(".resultText").html(successMessage).fadeIn("fast").animate({opacity: 1.0}, 8000).fadeOut(1500);
 
 				}
 				if (theResponse == 2) {
-				    $(".successBalloon").hide();
-                    $(".loader").hide();
-					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").hide().html(invalidMailError).fadeIn("slow");
-					$(".errorBalloon").animate({opacity: 1.0}, 3000);
-                    $(".resultText").animate({opacity: 1.0}, 3000);
-					$(".errorBalloon").fadeOut(1500);
-                    $(".resultText").fadeOut(1500);
+				    $(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("errorBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+					$(".resultText").html(invalidMailError).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 				}
 				if (theResponse == 3) {
-				    $(".successBalloon").hide();
-                    $(".loader").hide();
-					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").hide().html(duplicateMailError).fadeIn("slow");
-					$(".errorBalloon").animate({opacity: 1.0}, 3000);
-                    $(".resultText").animate({opacity: 1.0}, 3000);
-					$(".errorBalloon").fadeOut(1500);
-                    $(".resultText").fadeOut(1500);
+				    $(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("errorBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+					$(".resultText").html(duplicateMailError).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 				}
 				if (theResponse == 4) {
-				    $(".successBalloon").hide();
-                    $(".loader").hide();
-					$(".errorBalloon").fadeIn("slow");
-					$(".resultText").hide().html(allFieldsPlease).fadeIn("fast");
-					$(".errorBalloon").animate({opacity: 1.0}, 3000);
-                    $(".resultText").animate({opacity: 1.0}, 3000);
-					$(".errorBalloon").fadeOut(1500);
-                    $(".resultText").fadeOut(1500);
+					$(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("errorBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+					$(".resultText").html(allFieldsPlease).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 				}
 			},
 			error: function(){
-			    $(".successBalloon").hide();
-                $(".loader").hide();
-				$(".errorBalloon").fadeIn("slow");
-				$(".resultText").hide().html(systemError).fadeIn("fast");
-				$(".errorBalloon").animate({opacity: 1.0}, 3000);
-				$(".resultText").animate({opacity: 1.0}, 3000);
-				$(".errorBalloon").fadeOut(1500);
-                $(".resultText").fadeOut(1500);
+					$(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("errorBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+					$(".resultText").html(systemError).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 			}		
 		});
 	});
