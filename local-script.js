@@ -39,7 +39,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: 'POST',
-			url: 'subscribe.php?email='+email+'&nom='+name+'&type='+type,
+			url: 'subscribe-lf.php?email='+email+'&nom='+name+'&type='+type,
 			data: '',
 			success: function(theResponse){
 				$(".resultText").fadeIn("slow");

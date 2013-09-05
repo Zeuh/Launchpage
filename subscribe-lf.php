@@ -1,51 +1,9 @@
 <?php
+/** Adapted by F. Gilbert from original code at WebResourcesDepot - http://www.webresourcesdepot.com*/
 
-// Zend library include path
-set_include_path(get_include_path() . PATH_SEPARATOR . "$_SERVER[DOCUMENT_ROOT]/Zend");
+global $peopleFileName;
+    $peopleFileName = "resonances-collecte-UefnHeFe.txt";
 
-function GetDocument() {
-    global $ss;
-    
-   // Prepare Google spreadsheet 
-   include_once("Google_Spreadsheet.php");
-    
-    // FIXME : of course, you should put your google account here
-    $u = "pfesuioipr2@gmail.com";
-    $p = "6go9RqzO7Z9KTuBImM1eN6";
-    
-    $ss = new Google_Spreadsheet($u,$p);
-    $ss->useSpreadsheet("Contacts RESONANCES");
-    
-    // if not setting worksheet, "Sheet1" is assumed
-    $ss->useWorksheet("Feuille 1");
-}
-
-// Function to search existing email
-function EmailExists($email) {
-    global $ss;
-    $row = $ss->getRows('email='.'"'.$email.'"');
-    if ($row) return 1;
-    else return 0;
-}
-
-
-// Function to write to the document
-function AddSubscriber($type, $nom, $email) {
-    global $ss;
-    // Prepare data
-    $row = array (
-    "GDH" => date('ymd-His', time()),
-    "TYPE" => $type,
-    "NOM" => $nom,
-    "EMAIL" => $email
-    );
-    
-    // Write data
-    if ($ss->addRow($row)) echo 1;
-    else echo 0;
-}
-
-// Functions to get the form values
 function GetField($input) {
     $input=strip_tags($input);
     $input=str_replace("<","<",$input);
@@ -60,13 +18,14 @@ function GetField($input) {
     return $input;
 } 
 
+
+
 /**Validate an email address.
 Provide email address (raw input)
 Returns true if the email address has the email 
 address format and the domain exists.
 */
-function validEmail($email)
-{
+function EmailIsValid($email) {
    $isValid = true;
    $atIndex = strrpos($email, "@");
    if (is_bool($atIndex) && !$atIndex)
@@ -125,32 +84,77 @@ function validEmail($email)
    return $isValid;
 }
 
+// Function to work on file
+function OpenFile() {
+    global $theFile, $peopleFileName;
+    $theFile = fopen($peopleFileName, 'a+');
+    if (!$theFile)
+        return false;
+    else
+        return true;  
+}
+
+function EmailExists($email) {
+    global $theFile;
+    $exists = false;
+    rewind($theFile);
+    while ($userinfo = fscanf($theFile, "%s\t%s\t%s\t%s\n")) {
+        list ($gdh, $type, $name, $emile) = $userinfo;
+        if ($emile == $email) {
+            $exists = true;
+            break;
+        }
+    }
+    return $exists;
+}
+
+function AddSubscriber($type, $nom, $email) {
+    global $theFile;
+    
+    // Date & Time
+    $gdh = date('ymd-His', time());
+    $fd = "\t";
+    $rd = "\n";
+    
+    // Write data
+    fseek($theFile, -1, SEEK_END);
+    $n = fwrite($theFile, $gdh . $fd . $type . $fd . $nom . $fd . $email . $rd);
+    return $n > 0;
+}
+
+function CloseFile() {
+    global $theFile;
+    fclose($theFile);
+}
 
 /////// MAIN \\\\\\\\
 
 // Let's get the values
-$type       = GetField($_GET['type']);
-$nom        = GetField($_GET['nom']);
-$email      = GetField($_GET['email']);
-$emailOK    = validEmail($email);
+
+$email 	 = GetField($_GET['email']);
+$nom 	 = GetField($_GET['nom']);
+$type 	 = GetField($_GET['type']);
 
 if (!($email && $nom && $type)) {
-    // data missing
-    echo 4;
+    echo 4; // data missing
 } else {
-    if (!$emailOK) {
-        // email wrong
-        echo 2;
+    if (!EmailIsValid($email)) {
+        echo 2; // email is wrong
     } else {
-        GetDocument();
-        if (EmailExists($email)) {
-            echo 3;
+        if (!OpenFile()) {
+            echo -1; 
         } else {
-            $r = AddSubscriber($type, $nom, $email);
-            echo $r;
+            if (EmailExists($email)) {
+                echo 3; // email exists
+            } else {
+                if(AddSubscriber($type, $nom, $email)) {
+                    echo 1; // ok then
+                } else {
+                    echo -1;
+                }
+            }
+            CloseFile();
         }
     }
 }
-
-
 ?>
