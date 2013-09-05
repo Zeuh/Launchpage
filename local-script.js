@@ -69,6 +69,12 @@ $(document).ready(function() {
 					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 					$(".resultText").html(allFieldsPlease).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
 				}
+				if (theResponse == -1) {
+									$(".message").clearQueue().stop().hide();
+					$(".message").removeClass("loader").addClass("errorBalloon");
+					$(".message").fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+					$(".resultText").html(systemError).fadeIn("fast").animate({opacity: 1.0}, 3000).fadeOut("slow");
+                }
 			},
 			error: function(){
 					$(".message").clearQueue().stop().hide();
