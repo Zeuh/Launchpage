@@ -89,10 +89,11 @@ function EmailIsValid($email) {
 function OpenFile() {
     global $theFile, $peopleFileName;
     $theFile = fopen($peopleFileName, 'a+');
-    if (!$theFile)
+    if (!$theFile) {
         return false;
-    else
-        return true;  
+    } else {
+        return true;
+    }
 }
 
 function EmailExists($email) {
