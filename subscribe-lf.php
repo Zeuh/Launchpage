@@ -100,7 +100,7 @@ function EmailExists($email) {
     $exists = false;
     rewind($theFile);
     while (!feof($theFile)) {
-        $userinfo = fscanf($theFile, "%s\t%s\t%s\t%s\n")
+        $userinfo = fscanf($theFile, "%s\t%s\t%s\t%s\n");
         list ($gdh, $type, $name, $emile) = $userinfo;
         if ($emile == $email) {
             $exists = true;
