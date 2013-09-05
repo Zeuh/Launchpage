@@ -2,6 +2,7 @@
 /** Adapted by F. Gilbert from original code at WebResourcesDepot - http://www.webresourcesdepot.com*/
 
 global $peopleFileName;
+    // put full path to destination path
     $peopleFileName = "resonances-collecte-UefnHeFe.txt";
 
 function GetField($input) {
@@ -98,7 +99,8 @@ function EmailExists($email) {
     global $theFile;
     $exists = false;
     rewind($theFile);
-    while ($userinfo = fscanf($theFile, "%s\t%s\t%s\t%s\n")) {
+    while (!feof($theFile)) {
+        $userinfo = fscanf($theFile, "%s\t%s\t%s\t%s\n")
         list ($gdh, $type, $name, $emile) = $userinfo;
         if ($emile == $email) {
             $exists = true;
