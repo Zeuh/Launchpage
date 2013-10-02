@@ -3,7 +3,7 @@
 
 global $peopleFileName;
     // put full path to destination path
-    $peopleFileName = "resonances-collecte-UefnHeFe.txt";
+    $peopleFileName = "/resonances-collecte.txt";
 
 function GetField($input) {
     $input=strip_tags($input);

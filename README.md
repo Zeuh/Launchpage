@@ -3,6 +3,10 @@ Launchpage for RESONANCES
 
 This is a launchpage for one of my projects.
 
+USAGE :
+Set the path to the destination text file in subscribe-lf.php
+This data file should either go in a safe directory outside publication, or have a obfuscated name.  
+
 SOURCES :
 
 https://github.com/allenbo/frontpage
