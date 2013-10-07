@@ -206,7 +206,8 @@ button:hover {
     width:28em;
     height: 1.3em;
     font-size: 10px;
-    color: #222; 
+    color: #222;
+    background: #e8e3e5; 
     text-align: center;
     margin-top: 2em;
     margin-left: auto;
